@@ -52,4 +52,15 @@ public class ProductController {
         Page<ProductDTO> list = service.findAllWithPageable(pageRequest);
         return ResponseEntity.ok(list);
     }
+    
+    @GetMapping(value = "/products-pageable-count-query")
+    public ResponseEntity<Page<ProductDTO>> findProductsPageableWithCountQuery(
+            @RequestParam(value = "page", defaultValue = "0") Integer page,
+            @RequestParam(value = "size", defaultValue = "10") Integer size
+    ) {
+
+        PageRequest pageRequest = PageRequest.of(page, size);
+        Page<ProductDTO> list = service.findAllWithPageableWithCountQuery(pageRequest);
+        return ResponseEntity.ok(list);
+    }
 }

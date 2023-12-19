@@ -4,6 +4,7 @@ import com.restful.springdatajpanplus1query.entity.Category;
 import com.restful.springdatajpanplus1query.entity.Product;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class ProductDTO {
 
     private Long id;
@@ -20,9 +22,6 @@ public class ProductDTO {
 
     @Setter(AccessLevel.NONE)
     private List<CategoryDTO> categories = new ArrayList<>();
-
-    public ProductDTO() {
-    }
 
     public ProductDTO(Product product) {
         id = product.getId();

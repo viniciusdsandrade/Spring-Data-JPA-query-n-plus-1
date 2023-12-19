@@ -43,8 +43,15 @@ public class ProductServiceImpl implements ProductService {
     @Transactional(readOnly = true)
     public Page<ProductDTO> findAllWithPageable(PageRequest pageRequest) {
         Page<Product> page = repository.findAll(pageRequest);
-       repository.findProductCategoriesWithPage(page.getContent());
-        
+        repository.findProductCategoriesWithPage(page.getContent());
+
+        return page.map(ProductDTO::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<ProductDTO> findAllWithPageableWithCountQuery(PageRequest pageRequest) {
+        Page<Product> page = repository.findAll(pageRequest);
+        repository.findProductsCategoriesWithPageWithCountQuery(pageRequest);
         return page.map(ProductDTO::new);
     }
 }   

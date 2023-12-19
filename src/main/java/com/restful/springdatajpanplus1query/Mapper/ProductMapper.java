@@ -12,12 +12,4 @@ public class ProductMapper {
                 product.getCategories()
         );
     }
-    
-    public static Product mapsToProductDTO(ProductDTO productDTO) {
-        return new Product(
-                productDTO.getId(),
-                productDTO.getName(),
-                productDTO.getCategories()
-        );
-    }
 }

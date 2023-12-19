@@ -17,4 +17,7 @@ public interface ProductService {
 
     @Transactional(readOnly = true)
     Page<ProductDTO> findAllWithPageable(PageRequest pageRequest);
+
+    @Transactional(readOnly = true)
+    Page<ProductDTO> findAllWithPageableWithCountQuery(PageRequest pageRequest);
 }
